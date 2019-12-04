@@ -1,5 +1,4 @@
 module.exports = {
-    globalSetup: './test/setup.js',
-    globalTeardown: './test/teardown.js'
+  globalSetup: './test/setup.js',
+  globalTeardown: './test/teardown.js',
 };
-
