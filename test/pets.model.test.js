@@ -1,6 +1,6 @@
 
 describe('Pets Model', () => {
-    const { getAllPets, queryPetsByX } = require('../db/models/pets.model');
+    const { getAllPets, queryPetsByX, addPet } = require('../db/models/pets.model');
 
     it('#getAllPets', async () => {
         const allPets = await getAllPets();
@@ -21,20 +21,16 @@ describe('Pets Model', () => {
 
         expect(oizo[0].name).toBe('oizo');
     });
-});
 
-describe.skip('Sitters Model', () => {
-    const { getAllSitters, querySittersByX } = require('../db/sitters.model');
+    it('#addPet', async () => {
+        await addPet({
+            name: 'lassie',
+            type: 'dog'
+        });
 
-    it('#getAllSitters', async () => {
-        const allSitters = await getAllSitters();
+        const lassie = await queryPetsByX({ name: 'lassie' });
 
-        expect(allSitters.length).toBe(3);
-    });
-
-    it('#querySittersByX', async () => {
-        const cats = await querySittersByX({ name: 'lorenzo' });
-
-        expect(cats.length).toBe(4);
+        expect(Array.isArray(lassie)).toBe(true);
+        expect(lassie[0].type).toBe('dog');
     });
 });
