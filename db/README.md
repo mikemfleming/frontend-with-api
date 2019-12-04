@@ -5,23 +5,19 @@ You will want to reference the [Knex Docs](https://knexjs.org/) while working on
 ## Step 1: Set up your db
 
 ```
-# install postgres on your machine
-brew install postgresql
+# start the app
+docker-compose up
 
-# switch it on
-brew services start postgresql
-
-# initialize your db for this app
-bash db/init
-
-# run your first migration
+# in another window,
+#   run your first migration
 npm run migrate:latest
 
-# insert test data
+#   and insert test data
 npm run seed:run
-```
 
-After running the above you should be able to run `npm test` and see that all the tests are passing.
+# all the tests should pass
+npm test
+```
 
 ## Step 2: Create and run your first migration
 

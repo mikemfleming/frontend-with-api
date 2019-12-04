@@ -1,2 +1,0 @@
-psql -c '\x' -c 'create database my_app;'
-
