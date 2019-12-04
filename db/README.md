@@ -26,7 +26,8 @@ This migration will need to:
 * where each sitter has an id and a name field
 
 ## Step 3: Create your model layer
-I've gone ahead and created a model for the `pets` table for you. First, remove the `.skip` call in `./test/models.test.js`. Create and finish a model for `pet_sitters`. When you're done with this all of the tests should be passing. 
+I've gone ahead and created a model for the `pets` table for you. First, remove the `.skip` call in `./test/sitters.model.test.js`. Once you're done with that you can finish up the following in order:
 
-## Step 4: Create a relationship between pets and pet sitters
-Write a migration for this and write some tests that validate it in the model layer. 
+* write a migration for a table called sitters
+* seed that table with test data
+* code a model for `pet_sitters`. When you're done with this all of the tests should be passing. 
