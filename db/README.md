@@ -16,14 +16,17 @@ knex migrate:latest --cwd ./db
 # insert test data
 knex seed:run --cwd ./db
 ```
-This will give us a database named `my_app` with a single table named `pets`. That's great but we want our app to be able to track users as well as pets. 
+After running the above you should be able to run `npm test` and see that all the tests are passing.
 
-To do this you will need to create two new migrations:
-* one that creates a table called "pet_sitters" where each sitter has an id and a name field
-* and one that adds a field to the `pets` table that corresponds to a sitter id
+## Step 2: Create and run your first migration
+So now we have a database named `my_app` with a single table named `pets`. That's great! Let's make it more interesting by tracking pet sitters as well as pets. 
 
-## Step 2: Create your model layer
-I've gone ahead and created a model for the `pets` table for you. Finish the model for `pet_sitters`. When you're done with this all of the tests should be passing. 
+This migration will need to:
+* create a table called "pet_sitters"
+* where each sitter has an id and a name field
 
-## Step 3: Create a relationship between pets and pet sitters
+## Step 3: Create your model layer
+I've gone ahead and created a model for the `pets` table for you. First, remove the `.skip` call in `./test/models.test.js`. Create and finish a model for `pet_sitters`. When you're done with this all of the tests should be passing. 
+
+## Step 4: Create a relationship between pets and pet sitters
 Write a migration for this and write some tests that validate it in the model layer. 
