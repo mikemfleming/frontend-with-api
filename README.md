@@ -4,7 +4,7 @@ This repo will give you a taste for what fullstack development is like. It's bas
 Each dir has a README with an outline of what to do. Start with the model, then server, and finish with the view.
 
 ## Tests
-The tests are set up to run automatically while you implement different parts of this project. 
+The tests are set up to run automatically while you implement different parts of this project. When the tests run they will tear down your database, create it, and insert seed data.
 
 ## What does this app do?
 This is a dashboard for a pet sitting agency that allows you to track which pets are with which pet sitter.
