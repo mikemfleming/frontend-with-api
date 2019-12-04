@@ -2,5 +2,5 @@
 
 module.exports = {
   client: 'pg',
-  connection: { database: 'my_app' }
+  connection: { database: 'my_app' },
 };

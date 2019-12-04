@@ -26,7 +26,7 @@ This migration will need to:
 * where each sitter has an id and a name field
 
 ## Step 3: Create your model layer
-I've gone ahead and created a model for the `pets` table for you. First, remove the `.skip` call in `./test/sitters.model.test.js`. Once you're done with that you can finish up the following in order:
+I've gone ahead and created a model for the `pets` table for you. First, uncomment the first line and remove the `.skip` call in `./test/sitters.model.test.js`. Once you're done with that you can finish up the following in order:
 
 * write a migration for a table called sitters
 * seed that table with test data
