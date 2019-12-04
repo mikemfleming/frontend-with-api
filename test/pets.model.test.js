@@ -1,4 +1,10 @@
-const { getAllPets, queryPetsByX, addPet } = require('../db/models/pets.model');
+const {
+  getAllPets,
+  queryPetsByX,
+  addPet,
+  updatePet,
+  deletePet,
+} = require('../db/models/pets.model');
 
 describe('Pets Model', () => {
   it('#getAllPets', async () => {
@@ -31,5 +37,36 @@ describe('Pets Model', () => {
 
     expect(Array.isArray(lassie)).toBe(true);
     expect(lassie[0].type).toBe('dog');
+  });
+
+  it('#updatePet', async () => {
+    const id = await addPet({
+      name: 'flipper',
+      type: 'dolphin',
+    });
+
+    await updatePet({
+      id,
+      updates: {
+        available: false,
+      },
+    });
+
+    const flipper = await queryPetsByX({ id });
+
+    expect(flipper[0].available).toBe(false);
+  });
+
+  it('#deletePet', async () => {
+    const id = await addPet({
+      name: 'benji',
+      type: 'dog',
+    });
+
+    await deletePet(id);
+
+    const queryResults = await queryPetsByX({ id });
+
+    expect(queryResults.length).toBe(0);
   });
 });
