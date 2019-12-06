@@ -8,13 +8,6 @@ You will want to reference the [Knex Docs](https://knexjs.org/) while working on
 # start the app
 docker-compose up
 
-# in another window,
-#   run your first migration
-npm run migrate:latest
-
-#   and insert test data
-npm run seed:run
-
 # all the tests should pass
 npm test
 ```
