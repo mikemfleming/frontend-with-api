@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "migrate:latest": "knex migrate:latest --cwd ./db",
-    "migrate:rollback": "knex migrate:rollback --cwd ./db",
-    "seed:run": "knex seed:run --cwd ./db"
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
