@@ -1,6 +1,6 @@
-const { getAllSitters } = require('../db/models/sitters.model');
+// const { getAllSitters } = require('../db/models/sitters.model');
 
-describe('Sitters Model', () => {
+describe.skip('Sitters Model', () => {
   it('#getAllSitters', async () => {
     const allSitters = await getAllSitters();
 
