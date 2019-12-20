@@ -2,6 +2,8 @@ const {
   getAllSitters,
   querySitters,
   addSitter,
+  updateSitter,
+  deletePet,
 } = require('../db/models/sitters.model');
 
 describe('Sitters Model', () => {
@@ -29,5 +31,39 @@ describe('Sitters Model', () => {
     expect(katy[0].preferred_pet).toBe('Obie');
   });
 
-  it.skip('#updateSitter', async () => {});
+  it('#updateSitter', async () => {
+    // add a sitter
+    const id = await addSitter({
+      name: 'cathy',
+      preferred_pet: 'regalis',
+    });
+
+    // update sitter
+    await updateSitter({
+      id,
+      updates: {
+        preferred_pet: 'belle',
+      },
+    });
+
+    // query sitter
+    const cathy = await querySitters({ id });
+
+    // assert update succeeded
+    expect(Array.isArray(cathy)).toBe(true);
+    expect(cathy[0].preferred_pet).toBe('belle');
+  });
+
+  it('#deleteSitter', async () => {
+    const id = await addSitter({
+      name: 'katy',
+      preferred_pet: 'Obie',
+    });
+
+    await deletePet(id);
+
+    const queryResults = await querySitters({ id });
+
+    expect(queryResults.length).toBe(0);
+  });
 });

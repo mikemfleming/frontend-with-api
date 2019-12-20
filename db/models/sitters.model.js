@@ -10,3 +10,13 @@ exports.addSitter = (sitter) => db(tableName)
   .insert(sitter)
   .returning('id')
   .then((data) => data[0]);
+
+exports.updateSitter = ({ id, updates }) => db(tableName)
+  .update(updates)
+  .where({ id })
+  .returning('id')
+  .then((data) => data[0]);
+
+exports.deletePet = (id) => db(tableName)
+  .delete()
+  .where({ id });
